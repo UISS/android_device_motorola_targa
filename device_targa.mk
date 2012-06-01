@@ -292,6 +292,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 $(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor.mk)
+$(call inherit-product-if-exists, vendor/verizon/targa-verizon-vendor.mk)
 
 # stuff common to all Motorola phones -- disabled for Sandbox
 #$(call inherit-product, device/motorola/common/common_hijack.mk)
