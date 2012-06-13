@@ -294,7 +294,7 @@ ro.com.google.clientid=android-motorola
 ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html
 ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html
 ro.mot.hw.uaprof=http://uaprof.motorola.com/phoneconfig/MotoMB200/profile/MotoMB200.rdf
-ro.build.version.full=Blur_Version.5.9.902.XT875.Verizon.en.US
+ro.build.version.full=CM7_Version.5.9.902.XT875.Verizon.en.US
 ro.mot.hidden_keyboards=evfwd
 
 ro.rommanager.developerid=dhacker29

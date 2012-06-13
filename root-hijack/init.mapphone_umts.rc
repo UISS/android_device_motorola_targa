@@ -1,4 +1,8 @@
-on fs
+
+
+
+
+
 
 on post-fs
 
@@ -697,6 +701,7 @@ service panic_daemon /system/usr/bin/panic_daemon
     onrestart exec /system/bin/reboot
 # Ecompass daemon
 service akmd2 /system/bin/akmd2
+    class post-zygote_services
     user compass
     group compass misc input
 service wlan_loader /system/bin/wlan_loader -f /system/etc/wifi/fw_wlan1281.bin -i /system/etc/wifi/tiwlan.ini -e /pds/wifi/nvs_map.bin

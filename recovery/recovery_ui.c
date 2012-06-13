@@ -30,6 +30,7 @@ char* MENU_ITEMS[] = { "reboot system now",
                        "backup and restore",
                        "mounts and storage",
                        "advanced",
+                       "safe boot menu",
                        "power off",
                        NULL };
 
@@ -62,6 +63,7 @@ int device_handle_key(int key_code, int visible) {
             case KEY_END:
             case KEY_POWER:
             case KEY_SEARCH:
+            case KEY_OK:
                 return SELECT_ITEM;
             case KEY_BACK:
                 return GO_BACK;

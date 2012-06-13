@@ -1,4 +1,4 @@
-
+#
 # This is the product configuration for a full targa
 #
 
@@ -12,10 +12,6 @@ PRODUCT_COPY_FILES += \
     device/motorola/targa/root/default.prop:system/etc/rootfs/default.prop \
     device/motorola/targa/root/init.rc:system/etc/rootfs/init.rc \
     device/motorola/targa/root/init.mapphone_cdma.rc:system/etc/rootfs/init.mapphone_cdma.rc \
-    device/motorola/targa/root/init.mapphone_umts.rc:system/etc/rootfs/init.mapphone_umts.rc \
-    device/motorola/targa/root/ueventd.rc:system/etc/rootfs/ueventd.rc \
-    out/target/product/targa/root/sbin/adbd:system/etc/rootfs/sbin/adbd \
-    device/motorola/targa/root/ueventd.mapphone_cdma.rc:system/etc/rootfs/ueventd.mapphone_cdma.rc \
     device/motorola/targa/root/ueventd.mapphone_umts.rc:system/etc/rootfs/ueventd.mapphone_umts.rc
 
 # Hijack files
@@ -24,9 +20,8 @@ PRODUCT_COPY_FILES += \
     device/motorola/targa/root-hijack/init.rc:root/init.rc \
     device/motorola/targa/root-hijack/init.mapphone_cdma.rc:root/init.mapphone_cdma.rc \
     device/motorola/targa/root-hijack/init.mapphone_umts.rc:root/init.mapphone_umts.rc \
-    device/motorola/targa/root/ueventd.rc:root/ueventd.rc \
 
-## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
+## (3)  Finally, the least specific parts, i.e. the non-CDMA-specific aspects
 
 # Device overlay
     DEVICE_PACKAGE_OVERLAYS += device/motorola/targa/overlay
@@ -59,7 +54,6 @@ PRODUCT_COPY_FILES += \
     device/motorola/targa/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml \
     device/motorola/targa/prebuilt/etc/gps.conf:system/etc/gps.conf \
     device/motorola/targa/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    device/motorola/targa/prebuilt/etc/powervr.ini:system/etc/powervr.ini \
     device/motorola/targa/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
     device/motorola/targa/prebuilt/etc/wifi/tiwlan_ap.ini:system/etc/wifi/tiwlan_ap.ini \
     device/motorola/targa/prebuilt/etc/wifi/tiwlan.ini:system/etc/wifi/tiwlan.ini \
@@ -86,6 +80,7 @@ PRODUCT_PACKAGES += \
 
 # Audio HAL
 #    alsa.omap4 \
+
 PRODUCT_PACKAGES += \
     acoustics.default \
     alsa.default \
@@ -291,7 +286,7 @@ $(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor.mk)
 $(call inherit-product-if-exists, vendor/verizon/targa-verizon-vendor.mk)
 
 # stuff common to all Motorola phones -- disabled for Sandbox
-#$(call inherit-product, device/motorola/common/common_hijack.mk)
+$(call inherit-product, device/motorola/common/common_hijack.mk)
 
 
 $(call inherit-product, build/target/product/full_base.mk)

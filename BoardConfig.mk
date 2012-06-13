@@ -1,5 +1,18 @@
-# Sandbox Setup: ON  ** IF YOU ARE USING THIS AND DON'T KNOW WHAT THAT MEANS: BEWARE **
-# [HASH] I like how cvpcs grouped his settings, using that!
+#
+# Copyright (C) 2011 The Android Open-Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 
 # These two variables are set first, so they can be overridden
 # by BoardConfigVendor.mk
@@ -12,7 +25,6 @@ USE_CAMERA_STUB := false
 
 
 # Processor
-TARGET_NO_BOOTLOADER := false
 TARGET_BOARD_PLATFORM := omap4
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
@@ -24,6 +36,7 @@ TARGET_ARCH_VARIANT_FPU := neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 NEEDS_ARM_ERRATA_754319_754320 := true
 TARGET_GLOBAL_CFLAGS += -DNEEDS_ARM_ERRATA_754319_754320
+TARGET_NO_BOOTLOADER := false
 
 
 # Kernel
@@ -77,6 +90,8 @@ BUILD_BOOTMENU_STANDALONE := true
 BOARD_HAS_LOCKED_BOOTLOADER := true
 TARGET_PREBUILT_RECOVERY_KERNEL := device/motorola/targa/recovery-kernel
 BOARD_CUSTOM_GRAPHICS := ../../../device/motorola/targa/recovery/graphics.c
+TARGET_RECOVERY_PIXEL_FORMAT := BGR_565
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/motorola/targa/recovery/recovery_ui.c
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_ALWAYS_INSECURE := true
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -85,9 +100,8 @@ BOARD_NONSAFE_SYSTEM_DEVICE := /dev/block/mmcblk1p21
 BOARD_HAS_SDCARD_INTERNAL := true
 #BOARD_HAS_SDEXT := false
 #BOARD_HAS_WEBTOP := false
-
-#TARGET_RECOVERY_PRE_COMMAND := "echo 1 > /data/.recovery_mode; sync;"
-#TARGET_RECOVERY_PRE_COMMAND_CLEAR_REASON := true
+TARGET_RECOVERY_PRE_COMMAND := "echo 1 > /data/.recovery_mode; sync;"
+TARGET_RECOVERY_PRE_COMMAND_CLEAR_REASON := true
 
 
 # Sandbox Filesystem Settings
@@ -141,7 +155,7 @@ TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT := device/motorola/targa/releasetools/
 
 
 # Hijack
-#TARGET_NEEDS_MOTOROLA_HIJACK := true
+TARGET_NEEDS_MOTOROLA_HIJACK := true
 #BOARD_HIJACK_LOG_ENABLE := true
 
 
