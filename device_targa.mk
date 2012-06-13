@@ -8,7 +8,7 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 # Rootfs files
 PRODUCT_COPY_FILES += \
-    out/target/product/targa/root/init:system/etc/rootfs/init \
+    device/motorola/targa/root/init:system/etc/rootfs/init \
     device/motorola/targa/root/default.prop:system/etc/rootfs/default.prop \
     device/motorola/targa/root/init.rc:system/etc/rootfs/init.rc \
     device/motorola/targa/root/init.mapphone_cdma.rc:system/etc/rootfs/init.mapphone_cdma.rc \
@@ -16,6 +16,7 @@ PRODUCT_COPY_FILES += \
 
 # Hijack files
 PRODUCT_COPY_FILES += \
+    device/motorola/targa/root/init:root/init \
     device/motorola/targa/root/default.prop:root/default.prop \
     device/motorola/targa/root-hijack/init.rc:root/init.rc \
     device/motorola/targa/root-hijack/init.mapphone_cdma.rc:root/init.mapphone_cdma.rc \
