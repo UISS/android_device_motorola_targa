@@ -18,6 +18,7 @@
 # by BoardConfigVendor.mk
 BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := false
+TI_CAMERAHAL_DEBUG_ENABLED := true
 BOARD_USE_BATTERY_CHARGE_COUNTER := true
 
 # inherit from the proprietary version
