@@ -200,7 +200,8 @@ ril.dumpstate.timeout=60
 ro.hdcp.support=2
 
 # Mount the internal SD card, too
-ro.additionalmounts=/mnt/emmc
+ro.additionalmounts=/mnt/sdcard
+ro.vold.switchablepair=/mnt/sdcard-ext,/mnt/sdcard
 
 #special moto usb handling
 ro.usb.use_custom_service=1

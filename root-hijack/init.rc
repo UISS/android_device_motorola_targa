@@ -19,6 +19,7 @@ loglevel 3
     export DOWNLOAD_CACHE /cache/download
     export EXTERNAL_STORAGE /mnt/sdcard-ext
     export EXTERNAL_ALT_STORAGE /mnt/sdcard      # Feature 34534
+    export PHONE_STORAGE /mnt/sdcard
     export ASEC_MOUNTPOINT /mnt/asec
     export LOOP_MOUNTPOINT /mnt/obb
     export SD_EXT_DIRECTORY /sd-ext
