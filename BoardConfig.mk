@@ -18,7 +18,7 @@
 # by BoardConfigVendor.mk
 BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := false
-
+BOARD_USE_BATTERY_CHARGE_COUNTER := true
 
 # inherit from the proprietary version
 -include vendor/motorola/targa/BoardConfigVendor.mk
@@ -47,6 +47,11 @@ BOARD_PAGE_SIZE := 0x4096
 
 
 # Storage
+BOARD_USE_USB_MASS_STORAGE_SWITCH := true
+BOARD_VOLD_MAX_PARTITIONS := 30
+BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/usb_mass_storage/lun%d/file"
+BOARD_CUSTOM_USB_CONTROLLER := ../../device/motorola/targa/UsbController.cpp
 
 
 # Connectivity - Wi-Fi
@@ -164,6 +169,7 @@ BOARD_USES_TI_CAMERA_HAL := true
 BOARD_USE_BATTERY_CHARGE_COUNTER := true
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_NEEDS_CUTILS_LOG := true
+BOARD_ALWAYS_INSECURE := true
 
 targa_HARDWARE := true
 BOARD_GLOBAL_CFLAGS += -Dtarga_HARDWARE
