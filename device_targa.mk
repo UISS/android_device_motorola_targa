@@ -142,7 +142,7 @@ PRODUCT_COPY_FILES += \
     device/motorola/targa/prebuilt/camerafix/libtiutils.so:system/lib/libtiutils.so \
 
 # WirelessTether
-PRODUCT_PACKAGES += wifi_tether_v3_1-beta14
+PRODUCT_PACKAGES += wifi_tether_v3_2-pre1
 PRODUCT_COPY_FILES += \
     device/motorola/targa/prebuilt/lib/libwtnativetask.so:system/lib/libwtnativetask.so \
     device/motorola/targa/prebuilt/bin/bootsound:system/bin/bootsound \
