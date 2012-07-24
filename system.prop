@@ -23,6 +23,7 @@ ro.ngp_available=1
 ro.modem_available=0
 
 telephony.lteOnCdmaDevice=1
+ro.config.svlte1x=true
 
 # Turn on IMS by default
 persist.radio.imsregrequired=1
