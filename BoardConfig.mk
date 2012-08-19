@@ -29,7 +29,7 @@ BOARD_PAGE_SIZE := 0x4096
 
 # Kernel Build
 TARGET_KERNEL_SOURCE := kernel/motorola/solana
-TARGET_KERNEL_CONFIG := hashcode_targa_defconfig
+TARGET_KERNEL_CONFIG := hashcode_1024-21sys_defconfig
 TARGET_PREBUILT_KERNEL := device/motorola/targa/kernel
 
 
