@@ -27,11 +27,10 @@ PRODUCT_COPY_FILES += \
     device/motorola/targa/audio/libasound.so:/system/lib/libasound.so \
     device/motorola/targa/audio/libaudio_ext.so:/system/lib/libaudio_ext.so
 
+# Hardware HALs
 PRODUCT_PACKAGES += \
     camera.omap4 \
     libinvensense_mpl \
-    hwcomposer.omap4 \
-    hwcomposer.default \
 
 PRODUCT_PACKAGES += \
     libaudioutils \
@@ -50,7 +49,6 @@ PRODUCT_PACKAGES += \
     libreference-cdma-sms \
     rild \
     radiooptions \
-    sh 
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -64,6 +62,9 @@ PRODUCT_PACKAGES += \
     regulatory.bin \
     calibrator
 
+# Wifi Direct
+PRODUCT_PACKAGES += \
+    ti_wfd_libs
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -78,11 +79,11 @@ PRODUCT_PACKAGES += \
     targa_releaseutils-tune2fs
 
 PRODUCT_PACKAGES += \
+    evtest \
     camera_test \
     Superuser \
     su \
     DockAudio \
-    safestrapmenu \
 
 PRODUCT_PACKAGES += \
     librs_jni \
@@ -99,28 +100,24 @@ PRODUCT_COPY_FILES += \
 
 # Rootfs files
 PRODUCT_COPY_FILES += \
-    out/target/product/targa/root/init:system/etc/rootfs/init \
-    out/target/product/targa/root/sbin/adbd:system/etc/rootfs/sbin/adbd \
-    device/motorola/targa/root/default.prop:system/etc/rootfs/default.prop \
-    device/motorola/targa/root/init.rc:system/etc/rootfs/init.rc \
-    device/motorola/targa/root/init.mapphone_cdma.rc:system/etc/rootfs/init.mapphone_cdma.rc \
-    device/motorola/targa/root/init.mapphone_umts.rc:system/etc/rootfs/init.mapphone_umts.rc \
-    device/motorola/targa/root/usbcheck.sh:system/etc/rootfs/usbcheck.sh \
-    device/motorola/targa/root/ueventd.rc:system/etc/rootfs/ueventd.rc \
-    device/motorola/targa/root/ueventd.mapphone_cdma.rc:system/etc/rootfs/ueventd.mapphone_cdma.rc \
-    device/motorola/targa/root/ueventd.mapphone_umts.rc:system/etc/rootfs/ueventd.mapphone_umts.rc \
+    device/motorola/targa/root/default.prop:/root/default.prop \
+    device/motorola/targa/root/init.rc:/root/init.rc \
+    device/motorola/targa/root/init.mapphone_cdma.rc:/root/init.mapphone_cdma.rc \
+    device/motorola/targa/root/init.mapphone_umts.rc:/root/init.mapphone_umts.rc \
+    device/motorola/targa/root/ueventd.rc:/root/ueventd.rc \
+    device/motorola/targa/root/ueventd.mapphone_cdma.rc:/root/ueventd.mapphone_cdma.rc \
+    device/motorola/targa/root/ueventd.mapphone_umts.rc:/root/ueventd.mapphone_umts.rc \
 
-# Hijack files
+# Kexec files
 PRODUCT_COPY_FILES += \
-    device/motorola/targa/root/default.prop:root/default.prop \
-    device/motorola/targa/root/init.rc:root/init.rc \
-    device/motorola/targa/root-hijack/init.mapphone_cdma.rc:root/init.mapphone_cdma.rc \
-    device/motorola/targa/root-hijack/init.mapphone_umts.rc:root/init.mapphone_umts.rc \
-    device/motorola/targa/root/usbcheck.sh:root/usbcheck.sh \
-    device/motorola/targa/root/ueventd.rc:root/ueventd.rc \
-    device/motorola/targa/root/ueventd.mapphone_cdma.rc:root/ueventd.mapphone_cdma.rc \
-    device/motorola/targa/root/ueventd.mapphone_umts.rc:root/ueventd.mapphone_umts.rc \
-
+    device/motorola/targa/kexec/arm_kexec.ko:system/etc/kexec/arm_kexec.ko \
+    device/motorola/targa/kexec/atags:system/etc/kexec/atags \
+    device/motorola/targa/kexec/devtree:system/etc/kexec/devtree \
+    device/motorola/targa/kexec/kexec:system/etc/kexec/kexec \
+    device/motorola/targa/kexec/kexec.ko:system/etc/kexec/kexec.ko \
+    device/motorola/targa/kexec/uart.ko:system/etc/kexec/uart.ko \
+    out/target/product/targa/ramdisk.img:system/etc/kexec/ramdisk.img \
+    out/target/product/targa/kernel:system/etc/kexec/kernel \
 
 # Permissions files
 PRODUCT_COPY_FILES += \
@@ -146,15 +143,12 @@ PRODUCT_COPY_FILES += \
 # Prebuilts
 PRODUCT_COPY_FILES += \
     device/motorola/targa/prebuilt/bin/battd:system/bin/battd \
-    device/motorola/targa/prebuilt/bin/hijack:system/bin/hijack \
-    device/motorola/targa/prebuilt/bin/hijack.log_dump:system/bin/hijack.log_dump \
     device/motorola/targa/prebuilt/bin/mount_ext3.sh:system/bin/mount_ext3.sh \
     device/motorola/targa/prebuilt/bin/strace:system/bin/strace \
+    device/motorola/targa/prebuilt/etc/firmware/ducati-m3.bin:/system/etc/firmware/ducati-m3.bin \
     device/motorola/targa/prebuilt/etc/gps.conf:system/etc/gps.conf \
     device/motorola/targa/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/motorola/targa/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
-    device/motorola/targa/prebuilt/etc/hijack-boot.zip:system/etc/hijack-boot.zip \
-    device/motorola/targa/prebuilt/etc/TICameraCameraProperties.xml:system/etc/TICameraCameraProperties.xml \
 
 
 # Phone settings
@@ -169,12 +163,6 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_LOCALES += en_US
 
 
-# copy all kernel modules under the "modules" directory to system/lib/modules
-PRODUCT_COPY_FILES += $(shell \
-    find device/motorola/targa/modules -name '*.ko' \
-    | sed -r 's/^\/?(.*\/)([^/ ]+)$$/\1\2:system\/lib\/modules\/\2/' \
-    | tr '\n' ' ')
-
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 LOCAL_KERNEL := device/motorola/targa/kernel
 else
@@ -187,12 +175,10 @@ PRODUCT_COPY_FILES += \
 # stuff specific to ti OMAP4 hardware
 $(call inherit-product, hardware/ti/omap4xxx/omap4.mk)
 $(call inherit-product, hardware/ti/wpan/ti-wpan-products.mk)
-$(call inherit-product-if-exists, vendor/verizon/verizon-ics.mk)
-
+$(call inherit-product-if-exists, vendor/motorola/common/proprietary/imgtec/sgx-imgtec-bins.mk)
 $(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor.mk)
-
-# stuff common to all Motorola phones -- disabled for Sandbox
-#$(call inherit-product, device/motorola/common/common_hijack.mk)
+$(call inherit-product-if-exists, vendor/verizon/verizon-ics.mk)
+$(call inherit-product-if-exists, device/ti/proprietary-open/wl12xx/wlan/wl12xx-wlan-fw-products.mk)
 
 $(call inherit-product, build/target/product/full_base_telephony.mk)
 
