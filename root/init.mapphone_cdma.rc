@@ -144,8 +144,6 @@ on post-fs
 # Install kernel modules
 # Install product specific kernel modules
     exec /system/bin/load_modules.sh
-# Install webtop kernel modules
-    insmod /system/lib/modules/evfwd.ko
 # chown/chmod for FOTA
     chown system system /cache/fota
     chmod 0770 /cache/fota
