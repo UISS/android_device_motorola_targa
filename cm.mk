@@ -1,5 +1,5 @@
 # Inherit device configuration for Droid Bionic.
-$(call inherit-product, device/motorola/targa/device_targa.mk)
+$(call inherit-product, device/motorola/targa/full_targa.mk)
 
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)

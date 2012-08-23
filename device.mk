@@ -2,13 +2,15 @@
 # This is the product configuration for a full targa
 #
 
+DEVICE_FOLDER := device/motorola/targa
+
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 
 # Device overlay
-    DEVICE_PACKAGE_OVERLAYS += device/motorola/targa/overlay
+    DEVICE_PACKAGE_OVERLAYS += $(DEVICE_FOLDER)/overlay
 
 # high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi
@@ -18,14 +20,14 @@ PRODUCT_PACKAGES := \
     charger \
     charger_res_images
 
-# Audio - use stock ICS leak files for now
+# Audio
 PRODUCT_COPY_FILES += \
-    device/motorola/targa/audio/alsa.omap4.so:/system/lib/hw/alsa.omap4.so \
-    device/motorola/targa/audio/audio.a2dp.default.so:/system/lib/hw/audio.a2dp.default.so \
-    device/motorola/targa/audio/audio.primary.omap4.so:/system/lib/hw/audio.primary.omap4.so \
-    device/motorola/targa/audio/audio_policy.omap4.so:/system/lib/hw/audio_policy.omap4.so \
-    device/motorola/targa/audio/libasound.so:/system/lib/libasound.so \
-    device/motorola/targa/audio/libaudio_ext.so:/system/lib/libaudio_ext.so
+    $(DEVICE_FOLDER)/audio/alsa.omap4.so:/system/lib/hw/alsa.omap4.so \
+    $(DEVICE_FOLDER)/audio/audio.a2dp.default.so:/system/lib/hw/audio.a2dp.default.so \
+    $(DEVICE_FOLDER)/audio/audio.primary.omap4.so:/system/lib/hw/audio.primary.omap4.so \
+    $(DEVICE_FOLDER)/audio/audio_policy.omap4.so:/system/lib/hw/audio_policy.omap4.so \
+    $(DEVICE_FOLDER)/audio/libasound.so:/system/lib/libasound.so \
+    $(DEVICE_FOLDER)/audio/libaudio_ext.so:/system/lib/libaudio_ext.so
 
 # Hardware HALs
 PRODUCT_PACKAGES += \
@@ -48,7 +50,7 @@ PRODUCT_PACKAGES += \
     libaudiomodemgeneric \
     libreference-cdma-sms \
     rild \
-    radiooptions \
+    radiooptions
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -95,27 +97,26 @@ PRODUCT_PACKAGES += \
 # WirelessTether
 PRODUCT_PACKAGES += wifi_tether_v3_2-beta1
 PRODUCT_COPY_FILES += \
-    device/motorola/targa/prebuilt/lib/libwtnativetask.so:system/lib/libwtnativetask.so \
-
+    $(DEVICE_FOLDER)/prebuilt/lib/libwtnativetask.so:system/lib/libwtnativetask.so \
 
 # Rootfs files
 PRODUCT_COPY_FILES += \
-    device/motorola/targa/root/default.prop:/root/default.prop \
-    device/motorola/targa/root/init.rc:/root/init.rc \
-    device/motorola/targa/root/init.mapphone_cdma.rc:/root/init.mapphone_cdma.rc \
-    device/motorola/targa/root/init.mapphone_umts.rc:/root/init.mapphone_umts.rc \
-    device/motorola/targa/root/ueventd.rc:/root/ueventd.rc \
-    device/motorola/targa/root/ueventd.mapphone_cdma.rc:/root/ueventd.mapphone_cdma.rc \
-    device/motorola/targa/root/ueventd.mapphone_umts.rc:/root/ueventd.mapphone_umts.rc \
+    $(DEVICE_FOLDER)/root/default.prop:/root/default.prop \
+    $(DEVICE_FOLDER)/root/init.rc:/root/init.rc \
+    $(DEVICE_FOLDER)/root/init.mapphone_cdma.rc:/root/init.mapphone_cdma.rc \
+    $(DEVICE_FOLDER)/root/init.mapphone_umts.rc:/root/init.mapphone_umts.rc \
+    $(DEVICE_FOLDER)/root/ueventd.rc:/root/ueventd.rc \
+    $(DEVICE_FOLDER)/root/ueventd.mapphone_cdma.rc:/root/ueventd.mapphone_cdma.rc \
+    $(DEVICE_FOLDER)/root/ueventd.mapphone_umts.rc:/root/ueventd.mapphone_umts.rc \
 
 # Kexec files
 PRODUCT_COPY_FILES += \
-    device/motorola/targa/kexec/arm_kexec.ko:system/etc/kexec/arm_kexec.ko \
-    device/motorola/targa/kexec/atags:system/etc/kexec/atags \
-    device/motorola/targa/kexec/devtree:system/etc/kexec/devtree \
-    device/motorola/targa/kexec/kexec:system/etc/kexec/kexec \
-    device/motorola/targa/kexec/kexec.ko:system/etc/kexec/kexec.ko \
-    device/motorola/targa/kexec/uart.ko:system/etc/kexec/uart.ko \
+    $(DEVICE_FOLDER)/kexec/arm_kexec.ko:system/etc/kexec/arm_kexec.ko \
+    $(DEVICE_FOLDER)/kexec/atags:system/etc/kexec/atags \
+    $(DEVICE_FOLDER)/kexec/devtree:system/etc/kexec/devtree \
+    $(DEVICE_FOLDER)/kexec/kexec:system/etc/kexec/kexec \
+    $(DEVICE_FOLDER)/kexec/kexec.ko:system/etc/kexec/kexec.ko \
+    $(DEVICE_FOLDER)/kexec/uart.ko:system/etc/kexec/uart.ko \
     out/target/product/targa/ramdisk.img:system/etc/kexec/ramdisk.img \
     out/target/product/targa/kernel:system/etc/kexec/kernel \
 
@@ -142,13 +143,13 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilts
 PRODUCT_COPY_FILES += \
-    device/motorola/targa/prebuilt/bin/battd:system/bin/battd \
-    device/motorola/targa/prebuilt/bin/mount_ext3.sh:system/bin/mount_ext3.sh \
-    device/motorola/targa/prebuilt/bin/strace:system/bin/strace \
-    device/motorola/targa/prebuilt/etc/firmware/ducati-m3.bin:/system/etc/firmware/ducati-m3.bin \
-    device/motorola/targa/prebuilt/etc/gps.conf:system/etc/gps.conf \
-    device/motorola/targa/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    device/motorola/targa/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
+    $(DEVICE_FOLDER)/prebuilt/bin/battd:system/bin/battd \
+    $(DEVICE_FOLDER)/prebuilt/bin/mount_ext3.sh:system/bin/mount_ext3.sh \
+    $(DEVICE_FOLDER)/prebuilt/bin/strace:system/bin/strace \
+    $(DEVICE_FOLDER)/prebuilt/etc/firmware/ducati-m3.bin:system/etc/firmware/ducati-m3.bin \
+    $(DEVICE_FOLDER)/prebuilt/etc/gps.conf:system/etc/gps.conf \
+    $(DEVICE_FOLDER)/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
+    $(DEVICE_FOLDER)/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
 
 
 # Phone settings
@@ -162,9 +163,8 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 # still need to set english for audio init
 PRODUCT_LOCALES += en_US
 
-
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/motorola/targa/kernel
+LOCAL_KERNEL := $(DEVICE_FOLDER)/kernel
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -179,8 +179,3 @@ $(call inherit-product-if-exists, vendor/motorola/common/proprietary/imgtec/sgx-
 $(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor.mk)
 $(call inherit-product-if-exists, vendor/verizon/verizon-ics.mk)
 $(call inherit-product-if-exists, device/ti/proprietary-open/wl12xx/wlan/wl12xx-wlan-fw-products.mk)
-
-$(call inherit-product, build/target/product/full_base_telephony.mk)
-
-PRODUCT_NAME := full_targa
-PRODUCT_DEVICE := targa
