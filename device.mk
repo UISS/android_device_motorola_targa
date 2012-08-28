@@ -32,11 +32,11 @@ PRODUCT_COPY_FILES += \
 # Hardware HALs
 PRODUCT_PACKAGES += \
     camera.omap4 \
-    libinvensense_mpl \
+    libinvensense_mpl
 
 PRODUCT_PACKAGES += \
     libaudioutils \
-    libaudiohw_legacy \
+    libaudiohw_legacy
 
 # BlueZ test tools
 PRODUCT_PACKAGES += \
@@ -85,19 +85,13 @@ PRODUCT_PACKAGES += \
     camera_test \
     Superuser \
     su \
-    DockAudio \
+    DockAudio
 
 PRODUCT_PACKAGES += \
-    librs_jni \
     com.android.future.usb.accessory \
     FileManager \
     MusicFX \
-    Apollo \
-
-# WirelessTether
-PRODUCT_PACKAGES += wifi_tether_v3_2-beta1
-PRODUCT_COPY_FILES += \
-    $(DEVICE_FOLDER)/prebuilt/lib/libwtnativetask.so:system/lib/libwtnativetask.so \
+    Apollo
 
 # Rootfs files
 PRODUCT_COPY_FILES += \
@@ -107,7 +101,7 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_FOLDER)/root/init.mapphone_umts.rc:/root/init.mapphone_umts.rc \
     $(DEVICE_FOLDER)/root/ueventd.rc:/root/ueventd.rc \
     $(DEVICE_FOLDER)/root/ueventd.mapphone_cdma.rc:/root/ueventd.mapphone_cdma.rc \
-    $(DEVICE_FOLDER)/root/ueventd.mapphone_umts.rc:/root/ueventd.mapphone_umts.rc \
+    $(DEVICE_FOLDER)/root/ueventd.mapphone_umts.rc:/root/ueventd.mapphone_umts.rc
 
 # Kexec files
 PRODUCT_COPY_FILES += \
@@ -118,7 +112,7 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_FOLDER)/kexec/kexec.ko:system/etc/kexec/kexec.ko \
     $(DEVICE_FOLDER)/kexec/uart.ko:system/etc/kexec/uart.ko \
     out/target/product/targa/ramdisk.img:system/etc/kexec/ramdisk.img \
-    out/target/product/targa/kernel:system/etc/kexec/kernel \
+    out/target/product/targa/kernel:system/etc/kexec/kernel
 
 # Permissions files
 PRODUCT_COPY_FILES += \
@@ -138,7 +132,7 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.wifi.direct.xml:/system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/base/data/etc/handheld_core_hardware.xml:/system/etc/permissions/handheld_core_hardware.xml \
     frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+    frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
 
 
 # Prebuilts
@@ -149,13 +143,13 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_FOLDER)/prebuilt/etc/firmware/ducati-m3.bin:system/etc/firmware/ducati-m3.bin \
     $(DEVICE_FOLDER)/prebuilt/etc/gps.conf:system/etc/gps.conf \
     $(DEVICE_FOLDER)/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    $(DEVICE_FOLDER)/prebuilt/etc/vold.fstab:system/etc/vold.fstab \
+    $(DEVICE_FOLDER)/prebuilt/etc/vold.fstab:system/etc/vold.fstab
 
 
 # Phone settings
 PRODUCT_COPY_FILES += \
     device/sample/etc/apns-conf_verizon.xml:system/etc/apns-conf.xml \
-    vendor/cm/prebuilt/common/etc/spn-conf.xml:system/etc/spn-conf.xml \
+    vendor/cm/prebuilt/common/etc/spn-conf.xml:system/etc/spn-conf.xml
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
