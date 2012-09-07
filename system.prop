@@ -5,16 +5,13 @@
 rild.libpath=/system/lib/libmoto_ril.so
 rild.libargs=-d /dev/ttyO0
 telephony.lteOnCdmaDevice=1
-ro.config.svlte1x=true
 ro.sf.lcd_density=240
 ro.mot.ril.danlist=611,*611,#611
 persist.ril.ecclist=911,*911,#911
 
 # Enable ALWAYS_READ_IMSI_FROM_SIM
 persist.ril.features=800
-
 persist.ril.modem.mode =1
-
 # This defines the max event window manager can
 # handle in 1 s. We may adjust this # for performance
 # reason later
@@ -39,6 +36,7 @@ ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/
 ro.cdma.home.operator.numeric=310004
 ro.cdma.home.operator.alpha=Verizon
 ro.config.vc_call_vol_steps=7
+ro.config.svlte1x=true
 
 # wlan interface
 wifi.interface = wlan0
@@ -98,7 +96,7 @@ persist.mot.usb.mediasync = 1
 # persist.usb.android_config = 1
 
 # System property for SMC
-ro.service.start.smc=1
+ro.service.start.smc=0
 ro.HorizontalBUA=true
 #Proximity sensor debounce time
 mot.proximity.delay=450
@@ -229,6 +227,15 @@ ro.media.enc.aud.codec=qcelp
 ro.media.enc.aud.bps=13300
 ro.media.enc.aud.ch=1
 ro.media.enc.aud.hz=8000
+ro.mot.setuptype=2
+ro.HorizontalBUA=true
+ro.HorizontalVVM=true
+ro.horizontalIM=true
+ro.horizontalNGM=false
+ro.horizontalVMM=false
+ro.horizontalMOD=false
+ro.horizontalVOD=false
+ro.horizontalEmail=false
 ro.media.camcorder.1080p=mp4,h264,30,15000000,aac,128000,44100,2
 ro.media.camcorder.720p=mp4,h264,30,10000000,aac,128000,44100,2
 ro.media.camcorder.d1NTSC=mp4,h264,30,6000000,aac,128000,44100,2
@@ -248,15 +255,6 @@ ro.media.capture.flashIntensity=70
 ro.media.capture.classification=classF
 ro.media.panorama.defres=3264x1840
 ro.media.panorama.frameres=1280x720
-ro.mot.setuptype=2
-ro.HorizontalBUA=true
-ro.HorizontalVVM=true
-ro.horizontalIM=true
-ro.horizontalNGM=false
-ro.horizontalVMM=false
-ro.horizontalMOD=false
-ro.horizontalVOD=false
-ro.horizontalEmail=false
 ro.sf.lcd_density=240
 persist.service.aplogd.enable=1
 ro.mot.phonemode.vzw4gphone=1
@@ -284,6 +282,7 @@ ro.mot.hidden_keyboards=evfwd
 ro.setupwizard.enable_bypass=1
 persist.sys.usb.config=mass_storage,adb
 
+# Additions
 com.ti.omap_enhancement=true
 hwui.render_dirty_regions=false
 ril.subscription.types=NV,RUIM
