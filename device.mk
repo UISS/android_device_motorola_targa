@@ -75,7 +75,7 @@ endif
 # stuff specific to ti OMAP4 hardware
 $(call inherit-product, device/motorola/common/common.mk)
 $(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor.mk)
-$(call inherit-product-if-exists, vendor/verizon/verizon-ics.mk)
+$(call inherit-product-if-exists, vendor/motorola/common/proprietary/apps/verizon.mk)
 ifneq ($(BOARD_USES_KEXEC),true)
 $(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor-pvr.mk)
 $(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor-stock-camera.mk)
