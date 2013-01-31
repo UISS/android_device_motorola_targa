@@ -1,7 +1,7 @@
 #
 # This is the product configuration for a full targa
 #
-$(call inherit-product, device/motorola/common/common.mk)
+$(call inherit-product, device/motorola/omap4-common/common.mk)
 
 DEVICE_FOLDER := device/motorola/targa
 
