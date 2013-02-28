@@ -26,9 +26,9 @@ PRODUCT_PACKAGES += \
     libreference-cdma-sms
 
 # Kexec files and ti ducati or rootfs files
+#    $(DEVICE_FOLDER)/prebuilt/etc/firmware/ducati-m3.bin:system/etc/firmware/ducati-m3.bin \
 ifeq ($(BOARD_USES_KEXEC),true)
 PRODUCT_COPY_FILES += \
-    $(DEVICE_FOLDER)/prebuilt/etc/firmware/ducati-m3.bin:system/etc/firmware/ducati-m3.bin \
     $(DEVICE_FOLDER)/kexec/devtree:system/etc/kexec/devtree \
     $(OUT)/ramdisk.img:system/etc/kexec/ramdisk.img \
     $(OUT)/kernel:system/etc/kexec/kernel
@@ -55,5 +55,6 @@ $(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor.mk)
 ifneq ($(BOARD_USES_KEXEC),true)
 $(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor-pvr.mk)
 $(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor-stock-camera.mk)
-$(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor-stock-ducati.mk)
 endif
+$(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor-stock-ducati.mk)
+
