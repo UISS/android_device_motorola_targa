@@ -29,7 +29,8 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilts
 PRODUCT_COPY_FILES += \
-    $(DEVICE_FOLDER)/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml
+    $(DEVICE_FOLDER)/media_profiles.xml:system/etc/media_profiles.xml \
+    $(DEVICE_FOLDER)/vold.fstab:system/etc/vold.fstab
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 $(call inherit-product-if-exists, vendor/motorola/omap4-common/proprietary/vzw/verizon.mk)
