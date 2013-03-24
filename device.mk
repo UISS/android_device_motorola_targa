@@ -34,7 +34,7 @@ PRODUCT_COPY_FILES += \
 
 # Add ubuntu conf
 PRODUCT_COPY_FILES += \
-    $(DEVICE_FOLDER)/targa.conf:system/etc/ubuntu-session.d/targa.conf
+    $(DEVICE_FOLDER)/cdma_targa.conf:system/etc/ubuntu-session.d/cdma_targa.conf
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 $(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor.mk)
